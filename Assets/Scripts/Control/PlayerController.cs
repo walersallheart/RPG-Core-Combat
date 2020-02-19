@@ -8,11 +8,12 @@ namespace RPG.Control {
     public class PlayerController : MonoBehaviour
     {
         private void Update() {
-            InteractWithCombat();
-            InteractWithMovement();
+            if (InteractWithCombat()) return;
+            if (InteractWithMovement()) return;
+            Debug.Log("Nothing to do");
         }
 
-        void InteractWithCombat(){
+        bool InteractWithCombat(){
             RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
 
             foreach (RaycastHit hit in hits)
@@ -23,20 +24,13 @@ namespace RPG.Control {
                 if (Input.GetMouseButtonDown(0)) {
                     GetComponent<Fighter>().Attack(target);
                 }
+                return true;
             }
+
+            return false;
         }
 
-        void InteractWithMovement(){
-            if (Input.GetMouseButton(0)) {
-                MoveToCursor();
-            }
-        }
-
-        private Ray GetMouseRay(){
-            return Camera.main.ScreenPointToRay(Input.mousePosition);
-        }
-
-        private void MoveToCursor(){
+        bool InteractWithMovement(){
             Ray ray = GetMouseRay();
             RaycastHit hit;
 
@@ -44,8 +38,18 @@ namespace RPG.Control {
 
             if (hasHit)
             {
-                GetComponent<Mover>().MoveTo(hit.point);
+                if (Input.GetMouseButton(0)) {
+                    GetComponent<Mover>().MoveTo(hit.point);
+                }
+
+                return true;
             }
+
+            return false;
+        }
+
+        private Ray GetMouseRay(){
+            return Camera.main.ScreenPointToRay(Input.mousePosition);
         }
     }
 }
