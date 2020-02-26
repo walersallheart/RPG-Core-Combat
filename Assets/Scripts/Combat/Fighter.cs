@@ -9,23 +9,30 @@ namespace RPG.Combat {
     {
 
         [SerializeField] float weaponRange = 2f;
+        [SerializeField] float timeBetweenAttacks = 1f;
 
         Transform target;
+        float timeSinceLastAttack = 0;
+
         private void Update() {
+            timeSinceLastAttack += Time.deltaTime;
+
             if (target == null) return;
 
             if (!GetIsInRange()) {
                 GetComponent<Mover>().MoveTo(target.position);
-            } else
-            {
+            } else {
                 GetComponent<Mover>().Cancel();
                 AttackBehavior();
             }
         }
 
-        private static void AttackBehavior()
+        private void AttackBehavior()
         {
-            GetComponent<Animator>().SetTrigger("attack");
+            if (timeSinceLastAttack > timeBetweenAttacks) {
+                GetComponent<Animator>().SetTrigger("attack");
+                timeSinceLastAttack = 0;
+            }
         }
 
         bool GetIsInRange(){
