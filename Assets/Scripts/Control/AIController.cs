@@ -22,7 +22,7 @@ namespace RPG.Control {
         private void Update() {
             if (health.IsDead()) { return; }
 
-            if (InAttackRange() && fighter.CanAttack(player)){
+            if (InAttackRangeOfPlayer() && fighter.CanAttack(player)){
                 Debug.Log(gameObject.name + "Should chast");
                 fighter.Attack(player);
             } else {
@@ -30,9 +30,14 @@ namespace RPG.Control {
             }
         }
 
-        bool InAttackRange() {
+        bool InAttackRangeOfPlayer() {
             float distanceToPlayer =  Vector3.Distance(player.transform.position, transform.position);
             return distanceToPlayer < chaseDistance;
+        }
+
+        private void OnDrawGizmosSelected() {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(transform.position,chaseDistance);
         }
     }
 }
