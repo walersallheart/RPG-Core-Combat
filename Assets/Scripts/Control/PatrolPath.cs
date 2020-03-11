@@ -9,8 +9,22 @@ namespace RPG.Control{
 
         private void OnDrawGizmos() {
             for (int i = 0; i < transform.childCount; i++){
-                Gizmos.DrawSphere(transform.GetChild(i).transform.position, waypointGizmoRadius);
+                int j = GetNextIndex(i);
+                Gizmos.DrawSphere(GetWaypoint(i), waypointGizmoRadius);
+                Gizmos.DrawLine(GetWaypoint(i), GetWaypoint(j));
             }
+        }
+
+        int GetNextIndex(int i) {
+            if (i + 1 == transform.childCount) {
+                return 0;
+            }
+
+            return i + 1;
+        }
+
+        Vector3 GetWaypoint(int i){
+            return transform.GetChild(i).transform.position;
         }
     }
 }
