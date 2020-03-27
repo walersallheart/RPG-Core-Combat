@@ -178,6 +178,11 @@ PrefabInstance:
       propertyPath: sceneToLoad
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1248181282849963843, guid: ac95ff360846149038dbafd87b40340c,
+        type: 3}
+      propertyPath: destination
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3750041916449401628, guid: ac95ff360846149038dbafd87b40340c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -532,6 +537,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1248181282849963843, guid: ac95ff360846149038dbafd87b40340c,
+        type: 3}
+      propertyPath: sceneToLoad
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3750041916449401628, guid: ac95ff360846149038dbafd87b40340c,
         type: 3}

@@ -7,8 +7,13 @@ using UnityEngine.SceneManagement;
 namespace RPG.SceneManagement {
     public class Portal : MonoBehaviour{
 
+        enum DestinationIdentifier{
+            A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z
+        }
+
         [SerializeField] int sceneToLoad = -1;
         [SerializeField] Transform spawnPoint;
+        [SerializeField] DestinationIdentifier destination;
         private void OnTriggerEnter(Collider other) {
             if (other.tag == "Player") {
                 StartCoroutine(Transition());
@@ -37,9 +42,8 @@ namespace RPG.SceneManagement {
         private Portal GetOtherPortal()
         {
             foreach(Portal portal in FindObjectsOfType<Portal>()){
-                if (portal == this) {
-                    continue;
-                }
+                if (portal == this) continue;
+                if (portal.destination != destination) continue;
 
                 return portal;
             }
