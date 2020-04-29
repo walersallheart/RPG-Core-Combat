@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using RPG.Core;
 using System;
+using RPG.Resources;
 
 namespace RPG.Combat{
     [CreateAssetMenu(fileName = "Weapon", menuName = "Weapons/Make New Weapon", order = 0)]

@@ -115,6 +115,11 @@ PrefabInstance:
       propertyPath: characterClass
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114341425339445116, guid: 2608d01ed37a24035a195de67ec17680,
+        type: 3}
+      propertyPath: startingLevel
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1040267791896392520, guid: 2608d01ed37a24035a195de67ec17680,
         type: 3}
       propertyPath: healthPoints
