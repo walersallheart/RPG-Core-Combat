@@ -16,13 +16,13 @@ namespace RPG.Stats{
             if (levels.Length < level) {
                 return 0;
             }
-
+            
             return levels[level-1];
         }
 
         public int GetLevels(Stat stat, CharacterClass characterClass){
             BuildLookup();
-            
+
             float[] levels = lookupTable[characterClass][stat];
             return levels.Length;
         }
