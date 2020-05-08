@@ -40,7 +40,7 @@ namespace RPG.Stats{
         }
 
         public int GetLevel(){
-            if (currentLevel < 1) { 
+            if (currentLevel < 1) {
                 currentLevel = CalculateLevel();
             }
 
