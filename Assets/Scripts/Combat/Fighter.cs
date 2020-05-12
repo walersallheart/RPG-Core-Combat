@@ -5,6 +5,7 @@ using RPG.Movement;
 using RPG.Core;
 using RPG.Saving;
 using RPG.Resources;
+using RPG.Stats;
 
 namespace RPG.Combat {
     public class Fighter : MonoBehaviour, IAction, ISaveable
@@ -73,10 +74,12 @@ namespace RPG.Combat {
                 return;
             }
 
+            float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
+            
             if (currentWeapon.HasProjectile()){
-                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject);
+                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject, damage);
             } else {
-                target.TakeDamage(gameObject, currentWeapon.GetDamage());
+                target.TakeDamage(gameObject, damage);
             }
         }
 
