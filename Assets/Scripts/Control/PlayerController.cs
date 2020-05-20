@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using RPG.Movement;
 using RPG.Combat;
 using RPG.Resources;
@@ -13,7 +14,8 @@ namespace RPG.Control {
         enum CursorType {
             None,
             Movement,
-            Combat
+            Combat,
+            UI
         }
 
         [System.Serializable]
@@ -29,11 +31,24 @@ namespace RPG.Control {
             health = GetComponent<Health>();
         }
         private void Update() {
-            if (health.IsDead()) { return; }
+            if (InteractWithUI()) { return; }
+            if (health.IsDead()) {
+                SetCursor(CursorType.None);
+                return;
+            }
             if (InteractWithCombat()) { return; }
             if (InteractWithMovement()) { return; }
 
             SetCursor(CursorType.None);
+        }
+
+        bool InteractWithUI(){
+            if (EventSystem.current.IsPointerOverGameObject()){
+                SetCursor(CursorType.UI);
+                return true;
+            }
+
+            return false;
         }
 
         bool InteractWithCombat(){
