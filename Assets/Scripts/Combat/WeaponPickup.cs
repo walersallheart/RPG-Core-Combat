@@ -42,10 +42,14 @@ namespace RPG.Combat {
         {
             if (Input.GetMouseButtonDown(0)) {
                 Pickup(callingController.GetComponent<Fighter>());
-                return true;
             }
 
-            return false;
+            return true;
+        }
+
+        public CursorType GetCursorType()
+        {
+            return CursorType.Pickup;
         }
     }
 }

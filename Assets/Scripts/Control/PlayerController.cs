@@ -11,13 +11,6 @@ namespace RPG.Control {
     {
         Health health;
 
-        enum CursorType {
-            None,
-            Movement,
-            Combat,
-            UI
-        }
-
         [System.Serializable]
         struct CursorMapping {
             public CursorType type;
@@ -59,7 +52,7 @@ namespace RPG.Control {
 
                 foreach(IRaycastable raycastable in raycastables) {
                     if (raycastable.HandleRaycast(this)) {
-                        SetCursor(CursorType.Combat);
+                        SetCursor(raycastable.GetCursorType());
                         return true;
                     }
                 }
