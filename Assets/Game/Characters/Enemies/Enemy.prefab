@@ -51,6 +51,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5794514728604805085}
     m_Modifications:
+    - target: {fileID: 1033443976720470036, guid: 6ed8104878e644109a742c05a9a133d0,
+        type: 3}
+      propertyPath: healthComponent
+      value: 
+      objectReference: {fileID: 8630310903952589703}
     - target: {fileID: 3423581972917965536, guid: 6ed8104878e644109a742c05a9a133d0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -315,3 +320,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8767030736164614351}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8630310903952589703 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1040267791896392520, guid: 2608d01ed37a24035a195de67ec17680,
+    type: 3}
+  m_PrefabInstance: {fileID: 8767030736164614351}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5794514728604805081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 559518beb9b544e4da9924774d7c8476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
