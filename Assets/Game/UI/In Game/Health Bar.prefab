@@ -303,3 +303,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthComponent: {fileID: 0}
   foreground: {fileID: 5183988280931021920}
+  rootCanvas: {fileID: 7217604093173869606}
