@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   animatorOverride: {fileID: 22100000, guid: 119e582ff5c504925aab14ddd9d045e2, type: 2}
-  equippedPrefab: {fileID: 4790882470713560101, guid: ac590ad6b9c51462b91d9b6d1d49299d,
+  equippedPrefab: {fileID: 114927454586137342, guid: ac590ad6b9c51462b91d9b6d1d49299d,
     type: 3}
   weaponDamage: 2
   percentageBonus: 20
